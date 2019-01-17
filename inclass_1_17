@@ -1,0 +1,40 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream> //For termninal I/O 
+#include <fstream> //For file input 
+#include <cstdlib> //For exit()function
+#include <string> 
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    //cout << "Argc =" << argc << endl; //display the number of command line args
+        
+        //for(int i = 0; i < argc; i++) {
+          //  cout << argv[i] << endl;
+        //}
+    string line; //Will hold the data we read from the file 
+    ifstream inFile; //Open the input file 
+    
+    inFile.open(argv[1]); //Open the file name we get from the command line 
+    
+    if(!inFile) {
+        cerr << "Couldn't open " << argv[1] << endl;
+        exit(-1);
+        
+    }
+    
+    while (inFile) {
+        getline(inFile, line);
+        cout << line << endl;
+    }
+    
+    return 0;
+    
+}
